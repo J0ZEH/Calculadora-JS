@@ -15,7 +15,13 @@ function apagar(){
 function calcular(){
     var resultado = document.getElementById('resultado').innerHTML;
     if(resultado){
-        document.getElementById('resultado').innerHTML = eval(resultado);
+        //document.getElementById('resultado').innerHTML = eval(resultado);
+        resultado = eval(resultado)
+        if(Number.isInteger(resultado)){
+            document.getElementById('resultado').innerHTML = resultado.toString().slice(0,12);
+        } else{
+            document.getElementById('resultado').innerHTML = resultado.toFixed(8).slice(0,12);
+        }
     } else{
         document.getElementById('resultado').innerHTML = "";
     }
